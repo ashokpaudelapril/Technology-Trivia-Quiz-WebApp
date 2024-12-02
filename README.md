@@ -89,7 +89,3 @@ Feel free to fork the project, submit issues, or create pull requests. All contr
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-```
-
-Feel free to copy and paste this markdown code into your README file! If you need any more help, just let me know. 😊
-```
