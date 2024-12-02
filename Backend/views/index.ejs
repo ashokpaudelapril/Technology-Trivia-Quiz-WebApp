@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="Backend/public/style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="heading">Welcome to Technical Trivia</h1>
+            <h3>Wanna have some fun checking your technical knowledge <br> You are at the right place!!!
+            </h3>
+        </div>
+        <div class="main">
+            <h2>Personal Information</h2>
+            <form method="post" action="/quiz">
+                <div id="info">
+                    <label for="name">Enter your name</label>
+                    <input type="text" id="name" name="name" required>
+                    <br>
+                    <label for="email">Enter your email</label>
+                    <input type="text" id="email" name="email" required>
+                </div>
+
+                <div id="requestInfo">
+                    <h2>Category Request</h2>
+                    <div class="category">
+                        <label for="topics">Category</label>
+                        <select id="topics" name="topics" required>
+                            <option>DevOps</option>
+                            <option>Networking</option>
+                            <option>Programming (PHP, JS, Python and etc.)</option>
+                            <option>Cloud</option>
+                            <option>Docker</option>
+                            <option>Kubernetes</option>
+                        </select>
+                    </div>
+                    <div class="category">
+                        <label for="questions">Select number of questions</label>
+                        <input id="questions" type="number" name="questions" min="5" max="20" required />
+                    </div>
+
+                    <div class="category">
+                        <label for="level">Difficulty Label</label>
+                        <select id="level" name="level" required>
+                            <option>Easy</option>
+                            <option>Medium</option>
+                            <option>Hard</option>
+                        </select>
+                    </div>
+
+
+                    <hr>
+                    <div class="button">
+                        <h2>Ready For Trivia</h2>
+                        <button type="submit">Yes, I am ready!!!</button>
+                    </div>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</body>
+
+</html>

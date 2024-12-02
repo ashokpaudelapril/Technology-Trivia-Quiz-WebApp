@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score</title>
+</head>
+
+<body>
+    <h1>Technical Trivia</h1>
+    <h1>Your Report Card Is Here</h1>
+    <% let score=0, percentage, correctAns %>
+        <% data.forEach(bundle=> { %>
+            <h2>
+                <%= bundle.question %>
+            </h2> <!-- Display the question -->
+            <ol>
+                <% // Loop through the answers object of each bundle %>
+                    <% for (const [key, value] of Object.entries(bundle.answers)) { %>
+
+                        <% if (value) { %> <!-- Only render if value is not null -->
+
+                            <!-- Dynamically generate 'id' and 'value' for each radio button -->
+                            <li>
+                                <%= value %>
+                            </li><br>
+                            <% } %>
+                                <% } %>
+            </ol>
+
+            <p> <b>Yours answer: </b>
+                <%= bundle.answers[answer[bundle.id]]%>
+                    <p>
+
+
+
+                    <p><b>Correct Answers: </b>
+
+                        <% for ([options, value] of Object.entries(bundle.correct_answers)) {%>
+                            <% if (value=="true" ) {%>
+
+                                <% correctAns=bundle.answers[options.slice(0,8)] %>
+
+                                    <%= bundle.answers[options.slice(0,8)] %>
+                                        <% } %>
+                                            <% } %>
+                    </p>
+
+                    <% if (correctAns===bundle.answers[answer[bundle.id]]) { %>
+                        <h3>Congratulations! You got this right!!!!</h3>
+                        <% score +=1; } else { %>
+                            <h3>You need to revise this question.</h3>
+                            <% } %>
+
+
+                                <% if (bundle.explanation) { %>
+                                    <p> <b>Description: </b>
+                                        <%= bundle.explanation %>
+                                    </p>
+                                    <% } %>
+
+                                        <% }) %>
+
+                                            <% percentage=score/data.length * 100%>
+
+                                                <h1>Your Percentage is: <%= percentage %>%
+                                                </h1>
+                                                <% if (percentage < 80) { %>
+                                                    <h1>Sorry!!! You need to do little more revision for these topics
+                                                    </h1>
+                                                    <a href="index.ejs">Click here for retaking Trivia</a>
+                                                    <% } %>
+</body>
+
+</html>

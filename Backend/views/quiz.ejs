@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technology Trivia</title>
+</head>
+
+<body>
+
+    <h1>Technical Trivia</h1>
+
+    <form method="post" action="/score">
+
+        <% // Loop through each quiz question in the data array %>
+            <% data.forEach(bundle=> { %>
+                <h2>
+                    <%= bundle.question %>
+                </h2> <!-- Display the question -->
+
+                <% // Loop through the answers object of each bundle %>
+                    <% for (const [key, value] of Object.entries(bundle.answers)) { %>
+                        <% if (value) { %> <!-- Only render if value is not null -->
+
+                            <!-- Dynamically generate 'id' and 'value' for each radio button -->
+                            <label for="<%= key %>">
+                                <input type="radio" id="<%= key %>" name="<%= bundle.id %>" value="<%= key %>">
+                                <%= value %>
+                            </label><br>
+
+                            <% } %>
+                                <% } %>
+
+                                    <% }) %>
+                                        <button>Submit</button>
+    </form>
+</body>
+
+</html>
